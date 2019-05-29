@@ -1,13 +1,13 @@
 # aws_sqs-dead-letter-queue-lambda-requeue
 Requeue Dead Letter Queue jobs Lambda and Terraform
 
-**IMPORTANT: Please Notice The Limit Of Function** 
 
-**Loop will Break when Total Moved Job > 60** 
+**IMPORTANT: Please Notice The Limit of Function** 
 
-**And Please Set a Timeout Value for your Lambda Function (300s is my value)** 
+Loop will Break when Total Moved Job > 60 \
+And Please Set a Timeout Value for your Lambda Function (300s is my value)
 
-**It will be a Infinite Loop if you don't set**
+**WARNING:** It will be a Infinite Loop if you don't set
 
 
 ## Terraform
