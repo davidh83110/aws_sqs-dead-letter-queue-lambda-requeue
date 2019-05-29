@@ -40,4 +40,4 @@ Requeue Dead Letter Queue jobs Lambda and Terraform
 
 ### Flow Chart
 
-![image](./dlq_flow_chart.png =300x)
+<img src="./dlq_flow_chart.png" width=300 align=center>
