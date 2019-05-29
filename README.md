@@ -3,7 +3,6 @@ Requeue Dead Letter Queue jobs Lambda and Terraform
 
 
 ## Terraform
----
 
 ### Environment
 - Terraform v0.11.13
@@ -24,7 +23,6 @@ Requeue Dead Letter Queue jobs Lambda and Terraform
 
 
 ## Lambda
----
 
 ### Environment
 - Python 3.7
