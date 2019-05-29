@@ -13,12 +13,12 @@ Requeue Dead Letter Queue jobs Lambda and Terraform
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| AWS\_ACCOUNT |  | string | `"00000000"` | no |
-| AWS\_REGION |  | string | `"us-east-1"` | no |
-| lambda\_deployment\_package | # Lambda deployment package name | string | `"empty-deployment-package.zip"` | no |
-| lambda\_s3\_bucket\_name | # For Put Lambda deployment package | string | `"default-bucket"` | no |
-| lambda\_stage |  | string | `"prod"` | no |
-| sqs\_name |  | string | `"default-queue"` | no |
+| AWS\_ACCOUNT |  | string | `"00000000"` | yes |
+| AWS\_REGION |  | string | `"us-east-1"` | yes |
+| lambda\_deployment\_package | Lambda deployment package name | string | `"empty-deployment-package.zip"` | yes |
+| lambda\_s3\_bucket\_name | For Put Lambda deployment package | string | `"default-bucket"` | yes |
+| lambda\_stage |  | string | `"prod"` | yes |
+| sqs\_name |  | string | `"default-queue"` | yes |
 
 
 
