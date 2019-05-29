@@ -1,6 +1,31 @@
 # aws_sqs-dead-letter-queue-lambda-requeue
 Requeue Dead Letter Queue jobs Lambda and Terraform
 
+
+## Terraform
+---
+
+### Environment
+- Terraform v0.11.13
+- Terraform AWS Provider ~> 2.0
+
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| AWS\_ACCOUNT |  | string | `"00000000"` | no |
+| AWS\_REGION |  | string | `"us-east-1"` | no |
+| lambda\_deployment\_package | # Lambda deployment package name | string | `"empty-deployment-package.zip"` | no |
+| lambda\_s3\_bucket\_name | # For Put Lambda deployment package | string | `"default-bucket"` | no |
+| lambda\_stage |  | string | `"prod"` | no |
+| sqs\_name |  | string | `"default-queue"` | no |
+
+
+
+## Lambda
+---
+
 ### Environment
 - Python 3.7
 -  AWS SQS Source Queue
