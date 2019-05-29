@@ -68,4 +68,4 @@ pip3 install boto3
 
 ### Flow Chart
 
-<img src="./dlq_flow_chart.png" width=550 align=center>
+<img src="./images/dlq_flow_chart.png" width=550 align=center>
