@@ -11,6 +11,11 @@ Requeue Dead Letter Queue jobs Lambda and Terraform
 ### Requirements
 - boto3
 
+```
+pip3 install boto3
+
+```
+
 
 ### SQS to Lambda Event
 ```json
