@@ -36,7 +36,6 @@ Requeue Dead Letter Queue jobs Lambda and Terraform
 
 ```
 pip3 install boto3
-
 ```
 
 
