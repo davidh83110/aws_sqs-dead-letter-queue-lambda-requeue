@@ -24,30 +24,30 @@ class DLQ():
         source_queue_name = self.dead_letter_queue_name.replace('DLQ-', '')
         logger.info('Source Queue: ' + source_queue_name)
         
-        res = self.get_queue(source_queue_name).send_messages(
-            Entries=[
-                {
-                    'Id': message_id,
-                    'MessageBody': message_body
-                }
-            ]
-        )
+#         res = self.get_queue(source_queue_name).send_messages(
+#             Entries=[
+#                 {
+#                     'Id': message_id,
+#                     'MessageBody': message_body
+#                 }
+#             ]
+#         )
         
-        logger.info('Send Message Response: ' + res)
+#         logger.info('Send Message Response: ' + res)
         return True
     
     def delete_message_from_dlq(self, message_id, message_receipt_handle):
         
-        res = self.get_queue(self.dead_letter_queue_name).delete_messages(
-            Entries=[
-                {
-                    'Id': message_id,
-                    'ReceiptHandle': message_receipt_handle
-                }
-            ]
-        )
+#         res = self.get_queue(self.dead_letter_queue_name).delete_messages(
+#             Entries=[
+#                 {
+#                     'Id': message_id,
+#                     'ReceiptHandle': message_receipt_handle
+#                 }
+#             ]
+#         )
         
-        logger.info('Send Message Response: ' + res)
+#         logger.info('Send Message Response: ' + res)
         return True
         
         
@@ -60,23 +60,28 @@ class DLQ():
         
         logger.info('Message Length: '+ str(len(messages)))
         
-        for msg in messages:
-            logger.info('Message: ' + str(msg))
-            logger.info('Message ID: ' + str(msg.message_id))
-            logger.info('Message Body: ' + str(msg.body))
-            logger.info('Message Receipt Handle: ' + str(msg.receipt_handle))
+        for i, msg in enumerate(messages):
             
-            logger.info('Sending message back to source queue...')
+            logger.info('Index:[%s], Message ID: %s', str(i), msg.message_id)
+            logger.info('Index:[%s], Message Body: %s', str(i), str(msg.body))
+            logger.info('Index:[%s], Message Receipt Handle: %s', str(i), str(msg.receipt_handle))
+            
+            
+            logger.info('Index:[%s], Sending message back to source queue...', str(i))
             if self.send_messages_to_source_queue(msg.message_id, msg.body):
-                logger.info('Message is backed to source queue.')
+                logger.info('Index:[%s], Message is backed to source queue.', str(i))
             else:
-                logger.warn('Message sent to source queue failed.')
+                logger.warn('Index:[%s], Message sent to source queue failed.', str(i))
+
                 
-            logger.info('Deleteing message on DLQ...')
+                
+            logger.info('Index:[%s], Deleteing message on DLQ...', str(i))
             if self.delete_message_from_dlq(msg.message_id, msg.receipt_handle):
-                logger.info('Message deleted.')
+                logger.info('Index:[%s], Message deleted.', str(i))
             else:
-                logger.warn('Message delete failed.')
+                logger.warn('Index:[%s], Message delete failed.', str(i))
+                
+            logger.info('Index:[%s], Job done requeue.', str(i))
                 
             
             
