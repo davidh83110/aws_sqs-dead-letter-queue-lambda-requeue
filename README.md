@@ -91,5 +91,5 @@ pip3 install boto3 logging
 ### Flow Chart
 
 <p align="center">
-  <img width="350" height="650" src="./images/dlq_flow_chart.png">
+  <img width="350" height="475" src="./images/dlq_flow_chart.png">
 </p>
