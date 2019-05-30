@@ -1,8 +1,9 @@
 # aws_sqs-dead-letter-queue-lambda-requeue
 Requeue Dead Letter Queue jobs Lambda and Terraform
 
-
-<img src="./images/title.png" width=550 align=center>
+<p align="center">
+  <img width="350" height="300" src="./images/title.png">
+</p>
 
 
 **IMPORTANT: Please Notice The Limit of Function** 
@@ -85,4 +86,6 @@ pip3 install boto3 logging
 
 ### Flow Chart
 
-<img src="./images/dlq_flow_chart.png" width=550 align=center>
+<p align="center">
+  <img width="350" height="550" src="./images/dlq_flow_chart.png">
+</p>
