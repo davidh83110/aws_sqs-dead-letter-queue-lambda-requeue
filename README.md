@@ -1,6 +1,8 @@
 # aws_sqs-dead-letter-queue-lambda-requeue
 Requeue Dead Letter Queue jobs Lambda and Terraform
 
+[![Build Status](https://travis-ci.org/davidh83110/aws_sqs-dead-letter-queue-lambda-requeue.svg?branch=master)](https://travis-ci.org/davidh83110/aws_sqs-dead-letter-queue-lambda-requeue)
+
 <p align="center">
   <img width="350" height="300" src="./images/title.png">
 </p>
