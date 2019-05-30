@@ -14,6 +14,8 @@ And Please Set a Timeout Value for your Lambda Function (300s is my value)
 **WARNING:** It will be a Infinite Loop if you don't set
 
 
+
+
 ## Terraform
 
 ### Environment
@@ -87,5 +89,5 @@ pip3 install boto3 logging
 ### Flow Chart
 
 <p align="center">
-  <img width="350" height="550" src="./images/dlq_flow_chart.png">
+  <img width="350" height="650" src="./images/dlq_flow_chart.png">
 </p>
