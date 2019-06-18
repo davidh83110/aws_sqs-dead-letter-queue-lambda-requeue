@@ -7,7 +7,7 @@ module "lambda-DLQ" {
   function_name           = "DLQ-${var.sqs_name}"
   stage                   = "${var.lambda_stage}"
   handler                 = "lambda_function.lambda_handler"
-  subnet_ids              = ["${data.terraform_remote_state.remote.subnet_id_private-1a}", "${data.terraform_remote_state.remote.subnet_id_private-1b}"]
+  subnet_ids              = []
   runtime                 = "python3.7"
-  security_group_id       = "${data.terraform_remote_state.remote.allow_all}"
+  security_group_id       = ""
 }
