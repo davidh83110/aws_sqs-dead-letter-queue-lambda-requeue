@@ -10,7 +10,7 @@ module "sqs" {
   sqs_DELAY_SECONDS              = "0"
   sqs_MESSAGE_RETENTION_SECONDS  = "1209600"
   sqs_RECEIVE_WAIT_TIME_SECONDS  = "0"
-  sqs_redrive_policy             = "{\"deadLetterTargetArn\":\"${module.lambda-DLQ.lambda_arn}\",\"maxReceiveCount\":1}"
+  sqs_redrive_policy             = "{\"deadLetterTargetArn\":\"${aws_sqs_queue.dlq-default.arn}\",\"maxReceiveCount\":1}"
 }
 
 
