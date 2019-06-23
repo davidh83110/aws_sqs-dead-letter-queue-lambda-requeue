@@ -1,9 +1,9 @@
 module "lambda-DLQ" {
-  source = "git::https://github.com/davidh83110/terraform_ecs_template//lambda"
+  source = "git::ssh://git@github.com/davidh83110/terraform-modules-template.git//serverless/lambda"
  
-  s3_bucket               = "${var.lambda_s3_bucket_name}"
-  role_arn                = "${data.aws_iam_role.dlq.id}"
-  deployment_package_path = "${var.lambda_deployment_package}"
+  s3_bucket               = "bucket-name"
+  role_arn                = "${data.aws_iam_role.dlq.arn}"
+  deployment_package_path = "../function/${var.lambda_deployment_package}"
   function_name           = "Dead-Letter-Queue-requeue"
   stage                   = "${var.lambda_stage}"
   handler                 = "lambda_function.lambda_handler"

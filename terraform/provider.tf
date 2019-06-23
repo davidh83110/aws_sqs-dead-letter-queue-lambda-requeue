@@ -1,5 +1,7 @@
 terraform {
   backend "s3" {
+    bucket = "terraform.default.bucket"
+    key    = "dead-letter-queue-lambda/terraform.tfstate"
     region = "ap-southeast-1"
   }
 }
