@@ -89,8 +89,11 @@ def lambda_handler(context, event):
     logger.info('Event Body: \n' + str(event))
     dlq_name = event['Records'][0]['eventSourceARN'].split(':')[5]
     # dlq_name = 'dlq-demo-queue' #Test queue name when without Lambda Trigger
-
-    retry_count = event['Records'][0]['messageAttributes']['retryCount']['stringValue']
+    try:
+        retry_count = event['Records'][0]['messageAttributes']['retryCount']['stringValue']
+    except Exception as e:
+        logger.warning('KeyError: %s, assign retry_count = 1', e)
+        retry_count = 1
 
     if retry_count > 3:
         logger.error('This task is retrying over 3 time. function end.')

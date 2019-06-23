@@ -60,9 +60,14 @@ def lambda_handler(event, context):
         message_id = msg['messageId']
         message_receipt_handle = msg['receiptHandle']
         message_body = msg['body']
-        retry_count = msg['messageAttributes']['retryCount']['stringValue']
 
-        if retry_count > 3:
+        try:
+            retry_count = msg['messageAttributes']['retryCount']['stringValue']
+        except KeyError as e:
+            logger.warning('KeyError: %s, assign retry_count = 1', e)
+            retry_count = 1
+
+        if int(retry_count) > 3:
             logger.warning('Index:[%s], Times:[%s], ID: %s. This task is retrying over 3 time. function end.', str(i), str(retry_count), str(message_id))
             logger.info('Index:[%s], Deleteing message on DLQ...', str(i))
             DLQ(dlq_name).delete_message_from_dlq(message_id, message_receipt_handle)
